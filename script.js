@@ -95,17 +95,21 @@ let lowerCaseOpt = false;
 let upperCaseOpt = false;
 // Function to prompt user for password options
 function getPasswordOptions() {
-  passwordLength += prompt("please state the length of the password in numbers.");
-  charOpt = confirm("Would you like special characters in your password?");
-  numOpt = confirm("Would like the password to contain numbers?");
-  lowerCaseOpt = confirm("Can the password contain lowercase letter?");
-  upperCaseOpt = confirm("Do you require uppercase letters in the password?");
+  passwordLength = prompt("please state the length of the password in numbers.");
+  if (passwordLength < 10 || passwordLength > 64) {
+    alert("Sorry, the length of the password must be more than 10 and less than 64, please retry");
+    getPasswordOptions();
+  } else {
+    charOpt = confirm("Would you like special characters in your password?");
+    numOpt = confirm("Would like the password to contain numbers?");
+    lowerCaseOpt = confirm("Can the password contain lowercase letter?");
+    upperCaseOpt = confirm("Do you require uppercase letters in the password?");
 
+  }
+  
   console.log(passwordLength)
 
-  let optionArray = [charOpt, numOpt, lowerCaseOpt, upperCaseOpt];
-  console.log(optionArray);
-  
+ 
 
  
   /*console.log(passwordLength);
@@ -120,15 +124,16 @@ function getRandom(arr) {
   
 
 }
-let newPassword = "";
+
 // Function to generate password with user input
 function generatePassword() {
   getPasswordOptions();
+  let newPassword = "";
   console.log(passwordLength)
   for (i = 0; i < passwordLength; i++) {
     if (charOpt) {
       newPassword += getRandom(specialCharacters);
-      console.log(newPassword);
+      //console.log(newPassword);
     } 
     if (numOpt) {
       newPassword += getRandom(numericCharacters);
@@ -140,7 +145,7 @@ function generatePassword() {
       newPassword += getRandom(upperCasedCharacters);
     }
   }
-console.log(newPassword)
+//console.log(newPassword)
 return newPassword
 
   
