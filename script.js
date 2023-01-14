@@ -121,7 +121,6 @@ function getRandom(arr) {
   return arr[Math.floor(Math.random() * arr.length)] 
 }
 
-
 //-------------------------------------- Generate the password -----------------------------------//
 // Function to generate password with user input
 function generatePassword() {
@@ -150,8 +149,6 @@ function generatePassword() {
   }
 return newPassword
 }
-
-
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
