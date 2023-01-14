@@ -97,7 +97,7 @@ let numOpt = false;
 let lowerCaseOpt = false;
 let upperCaseOpt = false;
 
-
+//------------------------------------ acquiring user preferences -------------------------------//
 // Function to prompt user for password options
 function getPasswordOptions() {
   passwordLength = prompt("please state the length of the password in numbers.");
@@ -112,26 +112,17 @@ function getPasswordOptions() {
     lowerCaseOpt = confirm("Can the password contain lowercase letter?");
     upperCaseOpt = confirm("Do you require uppercase letters in the password?");
   } 
-  
-  console.log(passwordLength)
-
- 
-
- 
-  /*console.log(passwordLength);
-  console.log(charOpt);
-  console.log(numOpt);
-  console.log(lowerCaseOpt);*/
-
 }
+
+
+//------------------------------------- acquiring random elements---------------------------------//
 // Function for getting a random element from an array
 function getRandom(arr) {
   return arr[Math.floor(Math.random() * arr.length)] 
-  
- 
-
 }
 
+
+//-------------------------------------- Generate the password -----------------------------------//
 // Function to generate password with user input
 function generatePassword() {
   // execute prompt function (getPasswordOption())
@@ -145,7 +136,7 @@ function generatePassword() {
     added using getRandom() function */
     if (charOpt) {
       newPassword += getRandom(specialCharacters);
-      //console.log(newPassword);
+      
     } 
     if (numOpt) {
       newPassword += getRandom(numericCharacters);
@@ -157,15 +148,10 @@ function generatePassword() {
       newPassword += getRandom(upperCasedCharacters);
     }
   }
-//console.log(newPassword)
 return newPassword
-
-  
-  
-
 }
 
-console.log(passwordLength)
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
