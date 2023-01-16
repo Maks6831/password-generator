@@ -100,7 +100,12 @@ let upperCaseOpt = false;
 //------------------------------------ acquiring user preferences -------------------------------//
 // Function to prompt user for password options
 function getPasswordOptions() {
-  passwordLength = prompt("please state the length of the password in numbers.");
+
+  passwordLength = parseInt(prompt("please state the length of the password in numbers."));
+  if (Number.isNaN(passwordLength)) {
+    alert("password length must be a number");
+    getPasswordOptions();
+  } else {
   /* if else statement: if the input is less than 10 or more than 64 you get
   an alert tell the end user to retry, the function is then executed again!! */ 
   if (passwordLength < 10 || passwordLength > 64) {
@@ -112,6 +117,7 @@ function getPasswordOptions() {
     lowerCaseOpt = confirm("Can the password contain lowercase letter?");
     upperCaseOpt = confirm("Do you require uppercase letters in the password?");
   } 
+}
 }
 
 
@@ -126,26 +132,44 @@ function getRandom(arr) {
 function generatePassword() {
   // execute prompt function (getPasswordOption())
   getPasswordOptions(); 
+  let possibleChar = [];
+   if (charOpt) {
+    possibleChar = possibleChar.concat(specialCharacters)
+  }
+  if (numOpt) {
+    possibleChar = possibleChar.concat(numericCharacters)
+  }
+  if (lowerCaseOpt) {
+    possibleChar = possibleChar.concat(lowerCasedCharacters)
+  }
+  if (upperCaseOpt) {
+    possibleChar = possibleChar.concat(upperCasedCharacters)
+  }
+  console.log(possibleChar);
   // declare variable to store random elements into. 
   let newPassword = "";
+  let count = 0;
+  if (charOpt) {
+    newPassword += getRandom(specialCharacters);
+  }
+  if (numOpt) {
+    newPassword += getRandom(numericCharacters);
+  }
+  if (lowerCaseOpt) {
+    newPassword += getRandom(lowerCasedCharacters);
+  }
+  if (upperCaseOpt) {
+    newPassword += getRandom(upperCasedCharacters);
+  }
+
+  count = newPassword.length;
   console.log(passwordLength)
   // for: runs up until the length of newPassword = passwordLength(taken from prompt)
-  for (i = 0; i < passwordLength; i++) {
+  for (i = count; i < passwordLength; i++) {
     /* if statements: it option variable are chosen to be true, a random element is 
     added using getRandom() function */
-    if (charOpt) {
-      newPassword += getRandom(specialCharacters);
-      
-    } 
-    if (numOpt) {
-      newPassword += getRandom(numericCharacters);
-    }
-    if (lowerCaseOpt) {
-      newPassword += getRandom(lowerCasedCharacters);
-    }
-    if (upperCaseOpt) {
-      newPassword += getRandom(upperCasedCharacters);
-    }
+      newPassword += getRandom(possibleChar);
+    
   }
 return newPassword
 }
