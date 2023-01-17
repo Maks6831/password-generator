@@ -7,6 +7,7 @@ The purpose of this project was to create a password generator that takes in pre
 
 
 ### Screenshot
+![Screenshot 2023-01-17 at 18 02 26](https://user-images.githubusercontent.com/118021969/212976709-40c59ee5-03d6-4c68-be56-d172f12f34d6.jpg)
 
 
 ### Link to Deployed Webpage
