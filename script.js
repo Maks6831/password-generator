@@ -103,18 +103,18 @@ function getPasswordOptions() {
 // if statement to check if prompt input is integer. 
   passwordLength = parseInt(prompt("please state the length of the password in numbers."));
   if (Number.isNaN(passwordLength)) {
-    alert("password length must be a number");
+    alert("Error! Password length must be a number, please try again.");
     getPasswordOptions();
   } else {
   /* if else statement: if the input is less than 10 or more than 64 you get
   an alert tell the end user to retry, the function is then executed again!! */ 
   if (passwordLength < 10 || passwordLength > 64) {
-    alert("Sorry, the length of the password must be more than 10 and less than 64, please retry");
+    alert("Sorry, the length of the password must be more than 10 and less than 64, please retry.");
     getPasswordOptions();
   } else {
     charOpt = confirm("Would you like special characters in your password?");
-    numOpt = confirm("Would like the password to contain numbers?");
-    lowerCaseOpt = confirm("Can the password contain lowercase letter?");
+    numOpt = confirm("Would you like the password to contain numbers?");
+    lowerCaseOpt = confirm("Can the password contain lowercase letters?");
     upperCaseOpt = confirm("Do you require uppercase letters in the password?");
   } 
 }
