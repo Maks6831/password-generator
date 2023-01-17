@@ -3,7 +3,8 @@ challenge to create password generator
 
 ### Project Description 
 
-The purpose of this project was to create a password generator that takes in preferences from the end user and outputs a corresponding password ready to be copied. A template of 3 functions was provided. The first function was used to acquire data from the user using confirms, prompts etc. the second function was used to access a random element from an array. the last function combines the user data and the random element function to generate the desire password. the JS file uses arrays, for loops, if statements, functions etc.
+The purpose of this project was to create a password generator that takes in preferences from the end user and outputs a corresponding password ready to be copied. A template of 3 functions was provided. The first function was used to acquire data from the user using confirms, prompts etc. The second function was used to access a random element from an array. The last functions adds the character arrays to a new array(depending on what the end user specifies), adds atleast one element of the character types that is chosen, and chooses random elements which are stored into a variable up until the length of the password that user indicates is reached. 
+
 
 ### Screenshot
 
