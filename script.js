@@ -100,7 +100,7 @@ let upperCaseOpt = false;
 //------------------------------------ acquiring user preferences -------------------------------//
 // Function to prompt user for password options
 function getPasswordOptions() {
-
+// if statement to check if prompt input is integer. 
   passwordLength = parseInt(prompt("please state the length of the password in numbers."));
   if (Number.isNaN(passwordLength)) {
     alert("password length must be a number");
@@ -133,6 +133,7 @@ function generatePassword() {
   // execute prompt function (getPasswordOption())
   getPasswordOptions(); 
   let possibleChar = [];
+  // if statement which adds character arrays to new array depending on whether end user would like them. 
    if (charOpt) {
     possibleChar = possibleChar.concat(specialCharacters)
   }
@@ -145,8 +146,7 @@ function generatePassword() {
   if (upperCaseOpt) {
     possibleChar = possibleChar.concat(upperCasedCharacters)
   }
-  console.log(possibleChar);
-  // declare variable to store random elements into. 
+  // if statements to make sure if person choose certain type there is Atleast one of that type! 
   let newPassword = "";
   let count = 0;
   if (charOpt) {
@@ -161,15 +161,11 @@ function generatePassword() {
   if (upperCaseOpt) {
     newPassword += getRandom(upperCasedCharacters);
   }
-
   count = newPassword.length;
-  console.log(passwordLength)
-  // for: runs up until the length of newPassword = passwordLength(taken from prompt)
+  // for: starts from the count and finishes at inputted length. 
   for (i = count; i < passwordLength; i++) {
-    /* if statements: it option variable are chosen to be true, a random element is 
-    added using getRandom() function */
+    // adds random elements from array to the newPassword variable
       newPassword += getRandom(possibleChar);
-    
   }
 return newPassword
 }
